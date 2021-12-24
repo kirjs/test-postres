@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    networks:
+      - project-network
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 3002:8080
+    networks:
+      - project-network
+
+volumes:
+  pg-data:
+
+networks:
+  project-network:
+    driver: bridge
