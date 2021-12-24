@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^3.7.0",
+    "jest": "^27.4.5",
     "prisma": "^3.7.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3"
   }
 }
